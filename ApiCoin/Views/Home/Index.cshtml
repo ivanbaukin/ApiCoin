@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Welcome to app ApiCoin";
+}
+
+    <div class="jumbotron" style="text-align: center;">
+        <h2>Welcome to app ApiCoin</h2>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            using (Html.BeginForm("Logout", "Home", FormMethod.Post))
+            {
+                <div style="display: -webkit-inline-box;">
+                    <form action="~/Home/Logout">
+                        <input class="btn btn-default" type="submit" value="Log Out" />
+                    </form>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="lead">Choose one of two items:</p>
+            <div style="display: -webkit-inline-box;">
+                <form action="~/Account/Login">
+                    <input class="btn btn-default" type="submit" value="Login" />
+                </form>
+                <p class="lead" style="padding: 0px 10px;">or</p>
+                <form action="~/Account/Registration">
+                    <input class="btn btn-default" type="submit" value="Registration" />
+                </form>
+            </div>
+        }
+
+    </div>
